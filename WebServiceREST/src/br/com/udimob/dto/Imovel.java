@@ -13,7 +13,11 @@ public class Imovel implements Serializable {
 	
 	private Integer tipoImovel;
 	
-	private Integer usuario;
+	private String usuario;
+	
+	private String email;
+	
+	private String telefone;
 	
 	private String logradouro;
 	
@@ -25,6 +29,22 @@ public class Imovel implements Serializable {
 	
 	private Double preco;
 
+
+	public String getEmail(){
+		return email;
+	}
+	
+	public void setEmail(String email){
+		this.email = email;
+	}
+	
+	public String getTelefone(){
+		return telefone;
+	}
+	
+	public void setTelefone(String telefone){
+		this.telefone = telefone;
+	}
 	public Integer getIdImovel() {
 		return idImovel;
 	}
@@ -45,11 +65,11 @@ public class Imovel implements Serializable {
 		this.tipoImovel = tipoImovel;
 	}
 
-	public Integer getUsuario() {
+	public String getUsuario() {
 		return usuario;
 	}
 
-	public void setUsuario(Integer usuario) {
+	public void setUsuario(String usuario) {
 		this.usuario = usuario;
 	}
 
