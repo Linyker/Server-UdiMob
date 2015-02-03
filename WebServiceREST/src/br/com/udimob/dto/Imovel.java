@@ -28,7 +28,16 @@ public class Imovel implements Serializable {
 	private String descricaoImovel;
 	
 	private Double preco;
-
+	
+	private String imagem_url;
+	
+	public String getImagem(){
+		return imagem_url;
+	}
+	
+	public void setImagem(String imagem_url){
+		this.imagem_url = imagem_url;
+	}
 
 	public String getEmail(){
 		return email;

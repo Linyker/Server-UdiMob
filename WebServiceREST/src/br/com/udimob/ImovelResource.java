@@ -11,9 +11,11 @@ import br.com.udimob.dto.Imovel;
 
 import com.google.gson.Gson;
 
+
+
 @Path("/imovel")
 public class ImovelResource {
-
+	
 	@GET
     @Path("/buscarTodos")
     @Produces("application/json")

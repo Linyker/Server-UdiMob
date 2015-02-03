@@ -19,7 +19,11 @@ public class ImovelDAO extends ConnectionFactory {
 		ArrayList<Imovel> listaImoveis = null;
 
 		try {
-			stmt = conn.prepareStatement("select imovel.*,u.nome,u.telefone,u.email from imovel, usuarios u where imovel.id_usuario = u.id_usuario");
+			stmt = conn.prepareStatement("select GROUP_CONCAT(img.nome_imagem) as imagens, imovel.*,u.nome,u.telefone,u.email from imagens img,imovel,usuarios u"
+					+ " where imovel.id_usuario = u.id_usuario"
+					+ " and img.imovel_id = imovel.id_imovel"
+					+ " group by imovel.id_imovel");
+			
 			resultSet = stmt.executeQuery();
 			listaImoveis = new ArrayList<Imovel>();
 
@@ -36,6 +40,7 @@ public class ImovelDAO extends ConnectionFactory {
 				imovel.setUsuario(resultSet.getString("nome"));
 				imovel.setTelefone(resultSet.getString("telefone"));
 				imovel.setEmail(resultSet.getString("email"));
+				imovel.setImagem(resultSet.getString("imagens"));
 				
 				listaImoveis.add(imovel);
 			}
